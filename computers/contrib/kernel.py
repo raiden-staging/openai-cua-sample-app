@@ -24,7 +24,13 @@ def create_kernel_browser(stealth=True):
     """
     # Create browser with stealth
     kernel_browser = client.browsers.create(stealth=stealth)
-    pp(kernel_browser)
+    pp({
+        "kernel_browser":{
+            "session_id": kernel_browser.session_id,
+            "cdp_ws_url":kernel_browser.cdp_ws_url,
+            "browser_live_view_url": kernel_browser.browser_live_view_url
+        }
+    })
     return kernel_browser
 
 
